@@ -62,7 +62,9 @@ services:
       - /mnt/storage-box/paperless/media:/usr/src/paperless/media
       - /mnt/storage-box/paperless/export:/usr/src/paperless/export
       - /mnt/storage-box/paperless/consume:/usr/src/paperless/consume
-    env_file: podman-compose.env
+    env_file: 
+      - podman-compose.env
+      - ../../secrets/paperless.env
     environment:
       PAPERLESS_REDIS: redis://broker:6379  # Replace with actual broker IP
       PAPERLESS_DBHOST: db              # Replace with actual db IP
