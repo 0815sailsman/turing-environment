@@ -2,6 +2,7 @@
 set -e
 
 echo "[GitOps] Pulling latest changes..."
+export GIT_SSH_COMMAND='ssh -i ~/.ssh/gitops_read_only -o IdentitiesOnly=yes'
 git pull
 
 for dir in services/*; do
