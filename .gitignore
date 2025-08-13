@@ -1,3 +1,4 @@
 .idea
 secrets
 services/*/.last-deploy-hash
+services/*/.active-instance
