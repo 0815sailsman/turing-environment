@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  trilium:
+    image: docker.io/triliumnext/trilium:v0.98.0
+    container_name: trilium
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/say/trilium-data:/home/node/trilium-data
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - TOTP_ENABLED="true"
+    env_file:
+      - path: ../../secrets/trilium.env
+        required: true
