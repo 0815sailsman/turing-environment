@@ -1,0 +1,8 @@
+services:
+  vaultwarden:
+    image: docker.io/vaultwarden/server:1.34.3
+    container_name: vaultwarden
+    volumes:
+      - /home/say/vaultwarden-data/:/data/
+    ports:
+      - "8001:80"
