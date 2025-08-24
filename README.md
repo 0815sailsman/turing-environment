@@ -4,8 +4,6 @@ GitOps environment repository. Describes the services that should be running on 
 ## Adding new services
 Atm only podman compose services are supported, so adding a new service consists of creating the appropriate directory in the services directory and writing the podman-compose file, possibly including any non-sensitive env files next to it.
 
-Executing deploy.sh on the server then pulls this repo and checks for changes, re-starting any updates services.
-
 .env files in a service dir set vars in the container, while podman-compose.env files are used for startup / replacing in the compose yml itself.
 
 ## Continuous deployment of "latest" images
