@@ -9,7 +9,7 @@ services:
     ports:
       - "${HOST_PORT:-1337}:8080"
     volumes:
-      - /run/user/1000/podman/podman.sock:/run/podman/podman.sock
+      - /run/user/1000:/run/user/1000
       - /home/say/turing-environment:/env-repo
     environment:
       - XDG_RUNTIME_DIR=/run/user/1000
