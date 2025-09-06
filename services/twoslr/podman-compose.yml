@@ -3,6 +3,8 @@ version: "3.8"
 services:
   twoslr:
     image: ghcr.io/soulslike-routing/twoslr:latest
+    env_file:
+      - ../../secrets/twoslr.env
     container_name: twoslr
     depends_on:
       postgres:
