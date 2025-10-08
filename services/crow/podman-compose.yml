@@ -1,0 +1,27 @@
+services:
+  crow-server:
+    image: codeberg.org/crowci/crow-server:v4.3.0
+    ports:
+      - "8888:8000"
+    volumes:
+      - crow-server:/var/lib/crow/
+    environment:
+      - CROW_OPEN=true
+      - CROW_HOST=${CROW_HOST}
+      - CROW_GITHUB=true
+      - CROW_GITHUB_CLIENT=${CROW_GITHUB_CLIENT}
+    env_file:
+      - ../../secrets/crow.env
+
+  crow-agent:
+    image: codeberg.org/crowci/crow-agent:v4.3.0
+    restart: always
+    depends_on:
+      - crow-server
+    volumes:
+      - crow-agent:/etc/crow
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CROW_SERVER=crow-server:9000
+    env_file:
+      - ../../secrets/crow.env
