@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   crow-server:
     image: codeberg.org/crowci/crow-server:v4.3.0
@@ -25,3 +27,7 @@ services:
       - CROW_SERVER=crow-server:9000
     env_file:
       - ../../secrets/crow.env
+
+volumes:
+  crow-server:
+  crow-agent:
