@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   crow-server:
     image: codeberg.org/crowci/crow-server:v4.3.0
@@ -9,6 +7,7 @@ services:
       - crow-server:/var/lib/crow/
     environment:
       - CROW_OPEN=true
+      - CROW_ADMIN=0815sailsman
       - CROW_HOST=${CROW_HOST}
       - CROW_GITHUB=true
       - CROW_GITHUB_CLIENT=${CROW_GITHUB_CLIENT}
