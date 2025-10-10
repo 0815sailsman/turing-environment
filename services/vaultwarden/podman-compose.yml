@@ -6,3 +6,8 @@ services:
       - /home/say/vaultwarden-data/:/data/
     ports:
       - "8001:80"
+    healthcheck:
+      test: ["CMD", "./healthcheck.sh"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
