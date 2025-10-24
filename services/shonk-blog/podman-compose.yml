@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  shonkblog:
+    image: ghcr.io/shonk-software/shonkblog:latest
+    container_name: shonkblog
+    ports:
+      - "9999:80"
