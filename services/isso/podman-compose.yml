@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  isso:
+    image: ghcr.io/isso-comments/isso:0.13.0
+    container_name: isso
+    ports:
+      - "9998:8080"
+    volumes:
+      - ./isso.cfg:/config/isso.cfg
+      - ./comments.db:/db/comments.db
+    restart: unless-stopped
+    extra_hosts:
+      - "blog.shonk.software:host-gateway"
+
