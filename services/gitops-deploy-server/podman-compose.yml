@@ -4,12 +4,11 @@ services:
   gitops-deploy-server:
     image: ghcr.io/0815sailsman/gitops-deploy-server-aio:latest
     env_file:
-      - podman-compose.env
       - ../../secrets/gitops-deploy-server.env
     ports:
       - "${HOST_PORT:-1337}:8080"
     volumes:
-      - /run/user/1000:/run/user/1000
+      - /run/user/${UID}:/run/user/1000
       - /home/say/turing-environment:/env-repo
     environment:
       - XDG_RUNTIME_DIR=/run/user/1000
