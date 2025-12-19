@@ -41,6 +41,8 @@ services:
     environment:
       PAPERLESS_REDIS: redis://broker:6379  # Replace with actual broker IP
       PAPERLESS_DBHOST: db              # Replace with actual db IP
+    extra_hosts:
+      - "sso.say.software:host-gateway"
 
 networks:
   paperless:
