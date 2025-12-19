@@ -21,6 +21,8 @@ services:
     restart: unless-stopped
     healthcheck:
       disable: false
+    extra_hosts:
+      - "sso.say.software:host-gateway"
 
   immich-machine-learning:
     container_name: immich_machine_learning
