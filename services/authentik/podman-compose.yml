@@ -36,8 +36,8 @@ services:
     - ${COMPOSE_PORT_HTTPS:-9443}:9443
     restart: unless-stopped
     volumes:
-    - ./media:/media
-    - ./custom-templates:/templates
+    - /home/say/turing-environment/services/authentik/media:/media
+    - /home/say/turing-environment/services/authentik/custom-templates:/templates
   worker:
     command: worker
     depends_on:
@@ -55,9 +55,9 @@ services:
     user: root
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./media:/media
-    - ./certs:/certs
-    - ./custom-templates:/templates
+    - /home/say/turing-environment/services/authentik/media:/media
+    - /home/say/turing-environment/services/authentik/certs:/certs
+    - /home/say/turing-environment/services/authentik/custom-templates:/templates
 volumes:
   database:
     driver: local
